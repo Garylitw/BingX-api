@@ -297,12 +297,12 @@ def futinf():
     return json.loads(response)
 #ws
 def get_trade_min_limit_by_symbol(symbol):
-    data = futinf()  # 获取API响应数据
+    data = futinf()  # 
     if "data" in data:
         for contract in data["data"]:
             if contract.get("symbol") == symbol:
-                return float(contract.get("tradeMinLimit", 0))  # 如果找到，返回 tradeMinLimit，并转换为 float
-    return 0  # 如果未找到符合条件的合约，返回 0 或其他默认值
+                return float(contract.get("tradeMinLimit", 0))  # 
+    return 0  # 
 
 bn_price = 0
 bx_price = 0  
@@ -326,7 +326,7 @@ async def on_message(message):
     if data['e'] == 'trade':
     #    server_timestamp_ms = int(data['T'])
         bn_price = float(data['p'])
-      #  delay = current_time - server_timestamp_ms  # 计算延迟（毫秒）
+      #  delay = current_time - server_timestamp_ms  # （毫秒）
        # print(f"BN  Price: {bn_price}, Server Timestamp: {server_timestamp_ms}, Delay: {delay:.2f} ms")
 
 async def bn_websocket():
@@ -355,7 +355,7 @@ async def handle_bx_message2(message):
             #print(data)
             bx_price = float(data['data'][0]['p'])
             
-      #      delay = current_time - server_timestamp_ms  # 计算延迟（毫秒）
+      #      delay = current_time - server_timestamp_ms  # 
        #     print(f"BX   Price: {bx_price}, Server Timestamp: {server_timestamp_ms}, Delay: {delay:.2f} ms")
       #  else:
        #     print("Received data does not contain expected 'data' field.")
